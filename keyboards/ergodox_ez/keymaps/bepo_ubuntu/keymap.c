@@ -26,8 +26,8 @@
 #define TAB_MEH  MT(MEH_T(KC_NO), KC_TAB)  // TAB key and MEH modifier.
 #define LOCK (KC_Q | QK_LGUI | QK_LCTL) // Lock screen cmd+ctrl+q
 
-#define MK_SAVE   MT(MO(NUMS), LCTL(BP_S))  // cmd + s
-#define MK_COPY   MT(MO(MOUSE), LCTL(BP_C))  // cmd + c
+#define MK_SAVE   LCTL(BP_S)  // cmd + s
+#define MK_COPY   LCTL(BP_C)  // cmd + c
 #define MK_CUT   LCTL(BP_X)  // cmd + c
 #define MK_PASTE  LCTL(BP_V)  // cmd + v
 #define MK_UNDO   LCTL(BP_Z)  // cmd + z
@@ -45,13 +45,13 @@ qk_tap_dance_action_t tap_dance_actions[] = {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // Layer 0: basic keys.
-  [BASE] = KEYMAP(
+  [BASE] = LAYOUT_ergodox(
     /* left hand */
     KC_ESC,   BP_AMPERSAND, BP_DQOT, BP_SLASH, BP_BACKSLASH, KC_UNDERSCORE, KC_LEFT,
     KC_TAB,   BP_B,    BP_ECUT, BP_P,    BP_O,    BP_EGRV, KC_ESC,
     KC_LSFT,  BP_A,    BP_U,    BP_I,    BP_E,    BP_COMM,
     KC_LGUI, BP_AGRV, BP_Y,    BP_X,    BP_DOT,  BP_K,    ALL_T(KC_NO),
-    MK_UNDO,   MK_REFRESH, MK_SAVE, MK_PASTE, MT(MO(FN), TD(TD_COPY_CUT)),
+    MK_UNDO,   MK_REFRESH, MK_SAVE, MK_PASTE, TD(TD_COPY_CUT),
                                                                 KC_LALT, KC_MNXT,
                                                                          KC_MPRV,
                                                   SPC_CMD, ENT_SWAP, KC_MPLY,
@@ -60,13 +60,13 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_ESC,       BP_DCRC, BP_V,     BP_D,     BP_L,          BP_J,    BP_Z,
                       BP_C,    BP_T,     BP_S,     BP_R,          BP_N,    M_RSFT,
         MEH_T(KC_NO), BP_APOS, BP_Q,     BP_G,     BP_H,          BP_F,    W_RCTL,
-                               MO(FN) ,  MO(MOUSE), MO(NUMS),     BP_CCED, KC_LALT,
+                               TT(FN) ,  TT(MOUSE), TT(NUMS),     BP_CCED, KC_LALT,
     KC_LEFT, KC_RIGHT,
     KC_UP,
     KC_DOWN, TAB_MEH, BSPC_CMD),
 
   // Layer 1: function and media keys.
-  [FN] = KEYMAP(
+  [FN] = LAYOUT_ergodox(
     /* left hand */
     ___, BP_GRAVE, BP_PIPE,            BP_LESS, BP_GREATER, BP_PLUS,    ___,
     ___, BP_EXCLAIM,    BP_AT,              BP_LCBR, BP_RCBR,    BP_EQUAL,      ___,
@@ -89,7 +89,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     // the MOUSE layer below (except for the arrow keys).
 
   // Layer 2: Mouse control.
-  [MOUSE] = KEYMAP(
+  [MOUSE] = LAYOUT_ergodox(
     /* left hand */
     ___,     ___, ___,       ___,     ___,    ___,    ___,
     ___,     ___,   ___,     KC_MS_U, ___,  ___,      ___,
@@ -110,7 +110,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ___, ___, ___),
 
   // Layer 3: Numeric keypad and system keys.
-  [NUMS] = KEYMAP(
+  [NUMS] = LAYOUT_ergodox(
     /* left hand */
     ___, ___, ___,    ___,     ___,      ___, ___,
     ___,     KC_F1,    KC_F2,        KC_F3,     KC_F4,      KC_F5, ___,
@@ -133,7 +133,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   // Layer 5: hand swap, all keys are mirrored to the other side of the keyboard
   // except for the layer toggle itself (so there is no right arrow when this
   // layer is activated).
-  [SWAP] = KEYMAP(  
+  [SWAP] = LAYOUT_ergodox(  
     /* left hand */
     ___, ___, ___, ___, ___, ___, ___,
     ___, ___, ___, ___, ___, ___, ___,

@@ -4,6 +4,7 @@
 #undef MOUSEKEY_DELAY
 #undef MOUSEKEY_TIME_TO_MAX
 #undef MOUSEKEY_MAX_SPEED
+#undef TAPPING_TOGGLE
 
 // Utilisé pour un fonctionnement plus fluide de cmd+tab 
 // https://github.com/qmk/qmk_firmware/blob/master/docs/feature_advanced_keycodes.md#permissive-hold
@@ -35,7 +36,7 @@
 #define MOUSEKEY_WHEEL_MAX_SPEED    5
 #define MOUSEKEY_WHEEL_TIME_TO_MAX  60
 #define MOUSEKEY_WHEEL_DELAY        100
-
+#define TAPPING_TOGGLE 2
 
 
 
